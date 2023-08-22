@@ -1,0 +1,35 @@
+import wollok.game.*
+import auto.*
+
+program miPrimerWollokGame {
+	// límites del tablero de juego
+	//game.cellSize(50) cuadrado
+	game.width(14)
+	game.height(8)
+	game.title("GTA I")
+	// fondo del tablero de juego
+	game.ground("empedrado.jpg")
+	
+	// agregamos a nuestro objeto auto
+	autoRojo.position()
+	game.addVisual(autoRojo)
+	/* autoAzul.position()
+	game.addVisual(autoAzul)
+    */
+	// que arranque el juego!
+	
+	keyboard.w().onPressDo( {
+		autoRojo.subir()
+	} )
+	keyboard.a().onPressDo( {
+		autoRojo.moverIzquierda()
+	} )
+	keyboard.s().onPressDo( {
+		autoRojo.bajar()
+	} )
+	keyboard.d().onPressDo( {
+		autoRojo.moverDerecha()
+	} )
+	// el start() abao de todo siempre.
+	game.start()
+}
