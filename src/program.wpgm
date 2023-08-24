@@ -1,5 +1,6 @@
 import wollok.game.*
 import auto.*
+import obstaculos.*
 
 program miPrimerWollokGame {
 	// límites del tablero de juego
@@ -13,9 +14,11 @@ program miPrimerWollokGame {
 	// agregamos a nuestro objeto auto
 	autoRojo.position()
 	game.addVisual(autoRojo)
-	/* autoAzul.position()
+	paredDeLadrillo.position()
+	game.addVisual(paredDeLadrillo)
+	autoAzul.position()
 	game.addVisual(autoAzul)
-    */
+	
 	// que arranque el juego!
 	
 	keyboard.w().onPressDo( {
@@ -30,6 +33,19 @@ program miPrimerWollokGame {
 	keyboard.d().onPressDo( {
 		autoRojo.moverDerecha()
 	} )
-	// el start() abao de todo siempre.
+	
+	keyboard.up().onPressDo( {
+		autoAzul.subir()
+	} )
+	keyboard.left().onPressDo( {
+		autoAzul.moverIzquierda()
+	} )
+	keyboard.down().onPressDo( {
+		autoAzul.bajar()
+	} )
+	keyboard.right().onPressDo( {
+		autoAzul.moverDerecha()
+	} )
+	// el start() abajo de todo siempre.
 	game.start()
 }
